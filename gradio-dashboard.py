@@ -12,7 +12,7 @@ import gradio as gr
 
 # Load environment variables
 load_dotenv()
-os.environ["GOOGLE_API_KEY"] = "AIzaSyDlRO4062KgN98t1zx1hpZp2QxO0jj1htE"
+os.environ["GOOGLE_API_KEY"] = "GEMINI_API_KEY"
 
 # Load books data
 books = pd.read_csv("data_test/books_with_emotions.csv")
