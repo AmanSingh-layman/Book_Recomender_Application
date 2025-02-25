@@ -1,0 +1,4 @@
+db_books/*.bin filter=lfs diff=lfs merge=lfs -text
+db_books/*.sqlite3 filter=lfs diff=lfs merge=lfs -text
+db_books/chroma.sqlite3 filter=lfs diff=lfs merge=lfs -text
+db_books/c5c93e1b-1834-444c-afa3-dabec7d3424e/data_level0.bin filter=lfs diff=lfs merge=lfs -text
