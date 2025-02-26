@@ -1,0 +1,26 @@
+name: Sync to Hugging Face
+
+on:
+  push:
+    branches:
+      - master  # Change to 'master' if your GitHub branch is 'master'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Push to Hugging Face Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}  # Securely use GitHub Secrets
+        run: |
+          git clone https://AmanSingh-layman:$HF_TOKEN@huggingface.co/spaces/layman0101/BOOK_RECOMMENDER.git
+          rsync -av --exclude='.git' . BOOK_RECOMMENDER/
+          cd BOOK_RECOMMENDER
+          git config --global user.email "myths01012005@gmail.com"
+          git config --global user.name "AmanSingh-layman"
+          git add .
+          git commit -m "Auto-sync from GitHub" || echo "No changes to commit"
+          git push origin main  # Change to 'master' if needed
